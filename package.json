@@ -1,0 +1,19 @@
+{
+  "name": "service_queue",
+  "version": "1.0.0",
+  "description": "**Visão Geral**",
+   "main": "main.ts",
+  "scripts": {
+    "dev": "nodemon --exec ts-node ./src/main.ts",
+    "build": "rm -rf ./dist && tsc",
+    "start": "node ./dist/main.js"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "nodemon": "^3.1.4",
+    "ts-node": "^10.9.2",
+    "typescript": "^5.5.2"
+  }
+}
