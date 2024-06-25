@@ -3,9 +3,9 @@ export type Operator = {
     name: string;
     email: string;
     password: string;
-    ticketWindow: number;
-    openQueue: boolean;
-    serviceStarted: Date;
+    ticket_window: number;
+    open_queue: boolean;
+    service_started: Date;
 };
 
 export type Queue = {
