@@ -2,7 +2,7 @@
   "name": "service_queue",
   "version": "1.0.0",
   "description": "**Visão Geral**",
-   "main": "main.ts",
+  "main": "main.ts",
   "scripts": {
     "dev": "nodemon --exec ts-node ./src/main.ts",
     "build": "rm -rf ./dist && tsc",
@@ -12,8 +12,13 @@
   "author": "",
   "license": "ISC",
   "devDependencies": {
+    "@types/express": "^4.17.21",
     "nodemon": "^3.1.4",
     "ts-node": "^10.9.2",
     "typescript": "^5.5.2"
+  },
+  "dependencies": {
+    "dotenv": "^16.4.5",
+    "express": "^4.19.2"
   }
 }
