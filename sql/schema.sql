@@ -14,6 +14,7 @@ create table operator(
     email varchar(255) not null unique,
     password varchar(255) not null,
     ticket_window integer,
-    open_service boolean default false
-    service_started timestamp default now()
+    open_service boolean default false\,
+    service_started timestamp default now(),
+    service_finished timestamp default null
 );
