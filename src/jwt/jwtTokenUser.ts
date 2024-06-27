@@ -25,8 +25,6 @@ export const loginValidation = async (req: Request, res: Response, next: NextFun
             return res.status(401).json({ mensagem: "Token inválido ou expirado" });
         };
 
-        req.userId = (user as any).id;
-
         next();
 
     } catch (error) {

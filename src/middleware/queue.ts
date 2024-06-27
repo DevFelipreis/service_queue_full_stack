@@ -17,3 +17,5 @@ export const validationNameServiceQueue = async (req: Request, res: Response, ne
         return res.status(500).json({ message: "Erro ao lisar fila", error: error.message });
     }
 };
+
+
