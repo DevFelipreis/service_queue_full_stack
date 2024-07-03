@@ -10,6 +10,7 @@ export const verify = (token: string, secret: string) => {
 };
 
 export const loginValidation = async (req: Request, res: Response, next: NextFunction) => {
+
     const bearerToken = req.headers.authorization;
 
     if (!bearerToken || !bearerToken.startsWith("Bearer ")) {
@@ -19,6 +20,7 @@ export const loginValidation = async (req: Request, res: Response, next: NextFun
     const token = bearerToken.split(" ")[1];
 
     try {
+
         const user = verify(token, secret);
 
         if (!user) {
@@ -28,6 +30,8 @@ export const loginValidation = async (req: Request, res: Response, next: NextFun
         next();
 
     } catch (error) {
+
         return res.status(401).json({ mensagem: "Token inválido ou expirado" });
+
     };
 };
