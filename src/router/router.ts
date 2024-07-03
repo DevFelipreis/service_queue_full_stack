@@ -11,10 +11,16 @@ export default router;
 
 router.post("/login", loginOperator);
 
+<<<<<<< HEAD
 router.post("/queue", createServiceQueue);
 
 router.use(loginValidation);
 
+=======
+router.use(loginValidation);
+
+router.post("/queue", createServiceQueue);
+>>>>>>> 5e2cc84fb165898db4b5dd507af2b98cf90d9ce2
 router.get("/queue", validationNameServiceQueue, getServiceQueue);
 
 router.post("/operator", validationTicketWindow, validationEmailOperator, createOperators);
