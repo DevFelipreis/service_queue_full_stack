@@ -50,7 +50,8 @@ Edite o arquivo `src/database/connection.ts` para configurar a conexão com o ba
 - `POST /queue`: Cria uma nova fila de atendimento.
 - `GET /queue`: Obtém a fila de atendimento atual.
 - `POST /operator`: Cria um novo operador.
-- `PUT /operator`: Atualiza um operador existente.
+- `PUT /operator`: Atualiza um operador logado.
+- `DELETE /operator`: Exclui um operador logado.
 
 ## Estrutura do Código
 
@@ -101,4 +102,4 @@ Arquivo principal que inicializa o servidor e configura as rotas.
 
 ## Licença
 
-Este projeto está licenciado sob a [MIT License](LICENSE).
+Este projeto está licenciado sob a [GNU GENERAL PUBLIC LICENSE](LICENSE).
