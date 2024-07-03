@@ -9,7 +9,7 @@ const router = Router();
 
 export default router;
 
-router.post("/login", loginOperator);
+router.post("/login-user", loginOperator);
 
 router.post("/queue", createServiceQueue);
 
