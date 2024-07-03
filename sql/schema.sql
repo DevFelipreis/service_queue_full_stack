@@ -16,6 +16,6 @@ create table operator(
     email varchar(255) not null unique,
     password varchar(255) not null,
     ticket_window integer unique not null,
-    open_service boolean default false not null,
+    open_service boolean default false not null
     
 );
