@@ -35,11 +35,15 @@ export const loginOperator = async (req: Request, res: Response) => {
             return res.status(400).json({ message: "Email ou senha incorretos" });
         };
 
+        const operatorOpenServiceAndServiceStarted = await knex<Operator>("operator")
+            .update({ open_service: true, service_started: new Date() })
+            .where({ email: email });
+
         const { id,
             name,
             email: Email,
             ticket_window,
-            open_queue: open_queue,
+            open_service: open_queue,
             service_started } = operator;
 
         const token = jwt_user_token.sign({ id }, process.env.JWT_SECRET as string, { expiresIn: process.env.JWT_EXPIRES_IN });
@@ -80,6 +84,7 @@ export const createOperators = async (req: Request, res: Response) => {
                 email: email.toLowerCase(),
                 password: hashedPassword,
                 ticket_window,
+                open_service: false,
                 service_started: new Date(),
             }).returning("*");
 
@@ -87,8 +92,8 @@ export const createOperators = async (req: Request, res: Response) => {
             name: Name,
             email: Email,
             ticket_window: Ticket_window,
-            open_queue: open_queue,
-            service_started } = operator;
+            open_service: open_queue,
+            open_service } = operator;
 
         return res.status(200).json({
             usuario: {
@@ -97,7 +102,7 @@ export const createOperators = async (req: Request, res: Response) => {
                 email,
                 ticket_window,
                 open_queue: Boolean(open_queue),
-                service_started,
+                open_service,
             },
         });
     }
@@ -139,7 +144,7 @@ export const updateOperators = async (req: Request, res: Response) => {
             .where({ id: userId })
             .returning("*");
 
-        const { id, name: Name, email: Email, ticket_window: Ticket_window, open_queue: open_queue, service_started } = newOperator;
+        const { id, name: Name, email: Email, ticket_window: Ticket_window, open_service: open_queue, service_started } = newOperator;
 
         return res.status(200).json({
             usuario: {
@@ -147,7 +152,7 @@ export const updateOperators = async (req: Request, res: Response) => {
                 name: Name,
                 email: Email,
                 ticket_window: Ticket_window,
-                open_queue: Boolean(open_queue),
+                open_service: Boolean,
                 service_started,
             },
         });
@@ -161,6 +166,7 @@ export const updateOperators = async (req: Request, res: Response) => {
 
 export const deleteOperators = async (req: Request, res: Response) => {
     try {
+        const { password } = req.body
 
         const authHeader = req.headers.authorization;
 
@@ -174,7 +180,28 @@ export const deleteOperators = async (req: Request, res: Response) => {
 
         const userId = decoded!.id;
 
-        const operator = await knex<Operator>("operator").where({ id: userId }).first();
+        if (!password) {
+            return res.status(400).json({ message: "Todos os campos devem ser preenchidos corretamente" });
+        };
+
+        const operatorDeletedPass = await knex<Operator>("operator")
+            .select("*")
+            .where({ id: userId })
+            .first();
+
+        if (!operatorDeletedPass) {
+            return res.status(400).json({ message: "Senha incorreta" });
+        };
+
+        const isPasswordCorrect = await bcrypt.compare(password, operatorDeletedPass.password);
+
+        if (!isPasswordCorrect) {
+            return res.status(400).json({ message: "Senha incorreta" });
+        };
+
+        const operator = await knex<Operator>("operator")
+            .delete()
+            .where({ id: userId });
 
         return res.status(200).json({ message: "Operador deletado com sucesso" });
 
