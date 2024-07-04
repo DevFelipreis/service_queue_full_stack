@@ -1,5 +1,5 @@
 import { Router } from "express";
-import { createServiceQueue, getServiceQueue } from "../controllers/serviceQueue";
+import { createServiceQueue, getServiceQueueName, getServiceQueueOpenServiceFalse, getServiceQueueOpenServiceTrue, getServiceQueuePreferentialFalse, getServiceQueuePreferentialTrue, getServiceQueueAll } from "../controllers/serviceQueue";
 import { validationNameServiceQueue } from "../middleware/queue";
 import { createOperators, loginOperator, updateOperators, deleteOperators } from "../controllers/operators";
 import { validationEmailOperator, validationTicketWindow } from "../middleware/operator";
@@ -17,7 +17,12 @@ router.use(loginValidation);
 
 router.post("/queue", createServiceQueue);
 
-router.get("/queue", validationNameServiceQueue, getServiceQueue);
+router.get("/queue-name", validationNameServiceQueue, getServiceQueueName);
+router.get("/queue-open-service-true",  getServiceQueueOpenServiceTrue);
+router.get("/queue-open-service-false",  getServiceQueueOpenServiceFalse);
+router.get("/queue-preferential-false", getServiceQueuePreferentialFalse);
+router.get("/queue-preferential-true",  getServiceQueuePreferentialTrue);
+router.get("/queue-all",  getServiceQueueAll);
 
 router.post("/operator", validationTicketWindow, validationEmailOperator, createOperators);
 router.put("/operator", validationTicketWindow, validationEmailOperator, updateOperators);
