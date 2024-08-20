@@ -4,6 +4,9 @@
 
 A API de Fila de Atendimento é uma solução projetada para gerenciar e otimizar o fluxo de atendimento em ambientes que requerem organização de filas, como serviços de suporte ao cliente, clínicas médicas, serviços governamentais, entre outros. Desenvolvida em TSS (TypeScript Server-Side), a API oferece endpoints que permitem criar, gerenciar e monitorar filas de atendimento de forma eficiente e personalizada.
 
+## Figma do Projeto
+[Figma do projeto](https://www.figma.com/design/fNFEDt9UczkyDpBToaHSdn/Fila-de-Atendimento?node-id=2-282&m=dev)
+
 ## Código Fonte
 
 ![image](https://github.com/DevFelipreis/service_queue_back_end/assets/134344282/941a8ca9-f1d7-4ce7-b8a6-42037a5b3a7a)
