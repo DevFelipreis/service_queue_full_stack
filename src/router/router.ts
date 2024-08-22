@@ -1,5 +1,6 @@
 import { Router } from "express";
 import { createServiceQueue, getServiceQueueName, getServiceQueueOpenServiceFalse, getServiceQueueOpenServiceTrue, getServiceQueuePreferentialFalse, getServiceQueuePreferentialTrue, getServiceQueueAll } from "../controllers/serviceQueue";
+import { createServiceQueue, getServiceQueueName, getServiceQueueOpenServiceFalse, getServiceQueueOpenServiceTrue, getServiceQueuePreferentialFalse, getServiceQueuePreferentialTrue, getServiceQueueAll } from "../controllers/serviceQueue";
 import { validationNameServiceQueue } from "../middleware/queue";
 import { createOperators, loginOperator, updateOperators, deleteOperators } from "../controllers/operators";
 import { validationEmailOperator, validationTicketWindow } from "../middleware/operator";
@@ -9,7 +10,7 @@ const router = Router();
 
 export default router;
 
-router.post("/login", loginOperator);
+router.post("/login-user", loginOperator);
 
 router.post("/queue", createServiceQueue);
 
