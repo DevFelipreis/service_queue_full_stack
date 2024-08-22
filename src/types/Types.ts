@@ -4,7 +4,7 @@ export type Operator = {
     email: string;
     password: string;
     ticket_window: number;
-    open_queue: boolean;
+    open_service: boolean;
     service_started: Date;
 };
 
