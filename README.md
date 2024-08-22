@@ -95,6 +95,10 @@ Arquivo principal que inicializa o servidor e configura as rotas.
 - `README.md`: Documentação do projeto.
 - `tsconfig.json`: Configuração do TypeScript.
 
+## Colaboradores
+- [Luiz Felipe Reis](https://github.com/DevFelipreis)
+- [Nelson Caracas](https://github.com/ncaracas)
+
 ## Contribuição
 
 1. Faça um fork do projeto.
