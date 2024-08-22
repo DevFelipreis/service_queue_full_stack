@@ -29,11 +29,11 @@ document.addEventListener('DOMContentLoaded', () => {
                 localStorage.setItem('token', result.token);
 
                 serverMessageLogin.textContent = 'Login realizado com sucesso!';
-                serverMessageLogin.style.color = 'green';
+                serverMessageLogin.style.color = 'yellow';
                 window.location.href = 'google.com';
             } else {
                 serverMessageLogin.textContent = result.message || 'Erro ao fazer login. Tente novamente.';
-                serverMessageLogin.style.color = 'red';
+                serverMessageLogin.style.color = 'white';
             }
         } catch (error) {
             serverMessageLogin.textContent = 'Erro ao se comunicar com o servidor. Tente novamente mais tarde.';
