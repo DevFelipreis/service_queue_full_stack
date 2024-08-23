@@ -2,6 +2,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const loginForm = document.querySelector('form');
     const serverMessageLogin = document.getElementById('serverMessageLogin');
 
+
     loginForm.addEventListener('submit', async (event) => {
         event.preventDefault();
 
@@ -30,7 +31,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
                 serverMessageLogin.textContent = 'Login realizado com sucesso!';
                 serverMessageLogin.style.color = 'yellow';
-                window.location.href = 'google.com';
+                window.electron.ipcRenderer.send('open-new-window', 'http://google.com');
             } else {
                 serverMessageLogin.textContent = result.message || 'Erro ao fazer login. Tente novamente.';
                 serverMessageLogin.style.color = 'white';

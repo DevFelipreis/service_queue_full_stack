@@ -4,41 +4,17 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Atendimento</title>
-    <link rel="stylesheet" type="text/css" href="./css/login_style.css" media="screen" />
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link
-        href="https://fonts.googleapis.com/css2?family=Lemon&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap"
-        rel="stylesheet">
+    <title>Aplicativo Simples</title>
+    <link rel="stylesheet" type="text/css" href="./css/index_style.css" media="screen" />
+    <style> </style>
 </head>
 
 <body>
-    <main>
-        <section class="container-columns">
-            <div class="container-columns__left-column">
-                <h1>Bem-vindo</h1>
-                <form action="">
-                    <input type="text" id="user" name="user" placeholder="E-mail">
-                    <label for="user"></label>
-                    <input type="password" id="password" name="password" placeholder="Senha">
-                    <label for="password"></label>
-                    <div class="options">
-                        <input type="checkbox" id="rememberPassword" name="rememberPassword" value="manterSenha" />
-                        <label for="rememberPassword">Lembrar a senha </label>
-                        <a class="link" href="#">Esqueceu a senha?</a>
-                    </div>
-                    <input id="entrance" type="submit" name="entrance" value="Login">
-                </form>
-                <div id="serverMessageLogin"></div>
-            </div>
-            <div class="container-columns__right-column">
-                <img src="./assets/login_image.jpg" alt="imagem da tela de login">
-            </div>
-        </section>
-    </main>
+    <h1>Aplicativo Simples</h1>
+    <button id="addToQueueButton">Adicionar à Fila</button>
+    <button id="loginButton">Fazer Login</button>
 
-    <script src="./scripts/login.js"></script>
+    <script src="./scripts/index.js"></script>
 </body>
 
 </html>
